@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practice_18"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Жывтоне" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="5" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="lvAnimals" Grid.Row="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Type" />
+                    <GridViewColumn Header="Name" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        <StackPanel Grid.Row="1" Margin="5">
+            <Button x:Name="btnAdd" Content="Добавить"/>
+            <Button x:Name="btnEdit" Content="Редактировать"/>
+            <Button x:Name="btnRemove" Content="Удалить"/>
+        </StackPanel>
 
     </Grid>
 </Window>

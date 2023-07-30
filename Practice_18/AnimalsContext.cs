@@ -11,7 +11,7 @@ public partial class AnimalsContext : DbContext
     {
     }
 
-    public AnimalsContext(string dbName)
+    public AnimalsContext(string dbName) : base()
     {
         this.dbName = dbName;
     }

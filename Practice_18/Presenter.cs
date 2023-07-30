@@ -14,16 +14,35 @@ namespace Practice_18
 
         //AnimalsContext db = new AnimalsContext();
 
-        //public List<IAnimal> Animals { get; set; }
+        public List<IAnimal> Animals { get; set; }
 
         public Presenter(IView view)
         {
-            /*db.Database.EnsureCreated();
-            db.Animals.Load();
-            Animals = db.Animals.Local.ToList();*/
+            model = new SQLiteModel();
+            Animals = model.Animals;
             this.view = view;
-            model = new SQLiteModel("animals.db");
         }
 
+        public void GetData()
+        {
+            // model.GetData()
+            // result = model.Result()
+            // view.Result = result
+        }
+
+        public void AddAminal(IAnimal animal)
+        {
+
+        }
+
+        public void RemoveAminal(IAnimal animal)
+        {
+
+        }
+
+        public void EditAminal(IAnimal animal)
+        {
+
+        }
     }
 }

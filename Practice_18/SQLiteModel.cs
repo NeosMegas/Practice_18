@@ -8,10 +8,16 @@ namespace Practice_18
 {
     internal class SQLiteModel : IModel
     {
-        public List<IAnimal> Animals { get; }
+        public List<IAnimal> Animals { get;}
 
         AnimalsContext db;
         public SQLiteModel(string dbName)
+        {
+            db = new AnimalsContext(dbName);
+            Animals = db.Animals.ToList();
+        }
+
+        public SQLiteModel()
         {
             db = new AnimalsContext();
             Animals = db.Animals.ToList();

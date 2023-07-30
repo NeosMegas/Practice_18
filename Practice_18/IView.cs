@@ -8,6 +8,6 @@ namespace Practice_18
 {
     internal interface IView
     {
-        IAnimal Animal { get; set;  }
+        public List<IAnimal> Animals { get; set;  }
     }
 }

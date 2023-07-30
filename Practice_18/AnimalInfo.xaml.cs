@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Practice_18
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window, IView
+    public partial class Window1 : Window
     {
-        Presenter presenter;
-        public List<IAnimal> Animals {  get; set; }
-        public MainWindow()
+        public Window1()
         {
             InitializeComponent();
-            presenter = new Presenter(this);
-            Animals = new List<IAnimal>();
-            lvAnimals.ItemsSource = presenter.Animals;
         }
     }
 }
