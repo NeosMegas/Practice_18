@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Practice_18;
+namespace Practice18;
 
 public partial class AnimalsContext : DbContext
 {
-    string dbName = "animals.db";
+    readonly string dbName = "animals.db";
     public AnimalsContext()
     {
     }

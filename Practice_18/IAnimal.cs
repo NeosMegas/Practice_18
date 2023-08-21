@@ -1,15 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Practice_18
+﻿namespace Practice18
 {
+    /// <summary>
+    /// Интерфейс описания общих данных о животном.
+    /// </summary>
     public interface IAnimal
     {
-        long Id { get; set; }
-        string AnimalType { get; set; }
-        string Name { get; set; }
+        // Id животного в БД
+        public int Id { get; set; }
+        // Внутреннее наименование типа животного (напр., "mammal")
+        public string AnimalTypeName { get; set; }
+        // Отображаемое для пользователя наименование типа животного
+        // (напр., "млекопитающее")
+        public string AnimalTypeDisplayName { get; set; }
+        // Наименование животного (напр., "собака")
+        public string Name { get; set; }
+        // последний Id животного в БД
+        public static int lastId { get; set; }
     }
 }

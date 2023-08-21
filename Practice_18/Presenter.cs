@@ -1,48 +1,65 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace Practice_18
+namespace Practice18
 {
+    /// <summary>
+    /// Класс, осуществляющий взаимодействие между моделью
+    /// и видом в паттерне MVP
+    /// </summary>
     internal class Presenter
     {
-        IView view;
-        IModel model;
-
-        //AnimalsContext db = new AnimalsContext();
-
-        public List<IAnimal> Animals { get; set; }
+        // вид
+        readonly IView view;
+        // модель
+        readonly IModel model;
+        // список животных
+        public List<IAnimal> Animals;
+        // список типов животных
+        public List<string> AnimalTypes {
+            get
+            {
+                return model.GetAnimalTypes();
+            }
+        }
 
         public Presenter(IView view)
         {
             model = new SQLiteModel();
             Animals = model.Animals;
             this.view = view;
+            AnimalFactory.Initialize(model);
         }
 
-        public void GetData()
+        /// <summary>
+        /// Добавление животного в БД
+        /// </summary>
+        /// <param name="animal">Животное</param>
+        public void AddAnimal(IAnimal animal)
         {
-            // model.GetData()
-            // result = model.Result()
-            // view.Result = result
+            model.Add(animal);
+            view.UpdateAnimalList();
         }
 
-        public void AddAminal(IAnimal animal)
+        /// <summary>
+        /// Редактирование животного в БД
+        /// </summary>
+        /// <param name="animal">Животное</param>
+        /// <param name="listIndex">Id животного в текущем загруженном списке</param>
+        public void EditAnimal(IAnimal animal, int listIndex)
         {
-
+            model.Edit(animal, listIndex);
+            view.UpdateAnimalList();
         }
 
-        public void RemoveAminal(IAnimal animal)
+        /// <summary>
+        /// Удаление животного из БД
+        /// </summary>
+        /// <param name="animal">Животное</param>
+        /// <param name="listIndex">Id животного в текущем загруженном списке</param>
+        public void RemoveAnimal(IAnimal animal, int listIndex)
         {
-
-        }
-
-        public void EditAminal(IAnimal animal)
-        {
-
+            model.Remove(animal, listIndex);
+            view.UpdateAnimalList();
         }
     }
 }

@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Practice_18
+﻿namespace Practice18
 {
+    /// <summary>
+    /// Интерфейс вида, отображающего базу данных животных
+    /// </summary>
     internal interface IView
     {
-        public List<IAnimal> Animals { get; set;  }
+        void AddAnimal();
+        void EditAnimal();
+        void RemoveAnimal();
+        void UpdateAnimalList();
     }
 }

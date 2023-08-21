@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AnimalsContext.cs" />
+    <Compile Remove="old_SQLiteModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="animals %282%29.sqbpro" />
+    <None Remove="animals.sqbpro" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.8">
       <PrivateAssets>all</PrivateAssets>
